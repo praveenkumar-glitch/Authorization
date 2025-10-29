@@ -22,7 +22,6 @@ import java.util.List;
 
         private final String SECRET_KEY = "Praveen_secret_2025_key_1234567890@2025";
         private final Key secretKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
-
         @Override
         protected void doFilterInternal(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -31,7 +30,7 @@ import java.util.List;
 
             String path = request.getRequestURI();
 
-            if (path.contains("/addUser")||path.contains("/loginWithToken")) {
+            if (path.contains("/addUser")||path.contains("/loginWithToken")||path.contains("/saveUserData")||path.contains("/getall")) {
                 filterChain.doFilter(request, response);
                 return;
             }

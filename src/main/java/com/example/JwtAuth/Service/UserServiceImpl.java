@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public String createUser(Users newUser) {
-
         String encodedPassword=encoder.encode(newUser.getPassword());
         newUser.setPassword(encodedPassword);
         userrepo.save(newUser);
@@ -50,7 +49,7 @@ public class UserServiceImpl implements UserService{
         Users user=userrepo.findByEmail(email);
 
         if(user==null && !passwordEncoder.matches(password,user.getPassword()) ){
-            return new JwtDTO(email,"","Login failee");
+            return new JwtDTO(email,"","Login failed");
         }
         String token=jwtutilObj.generateToken(user);
         return new JwtDTO(email,"",token);
@@ -95,7 +94,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public String saveUserRecord(Users userObj) {
-        return "";
+        userrepo.save(userObj);
+        return "User registered successfully";
     }
 
 //    @Override

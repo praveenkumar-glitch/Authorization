@@ -63,7 +63,8 @@ import java.util.List;
             return service.updateUser(id, updatedUser);
         }
 
-        @GetMapping
+        @GetMapping("/getall")
+
         public List<Users> gettAllUsers() {
             return service.getAllUser();
         }

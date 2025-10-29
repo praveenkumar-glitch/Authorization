@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserService {
 
     public String createUser(Users newUser);
-    public JwtDTO   signinUser(String eemail,String password);
+    public JwtDTO   signinUser(String email,String password);
     public JwtDTO signinWithHashing(String email, String password);
     public List<Users> getAllUser();
     public Users getUser(int id);
